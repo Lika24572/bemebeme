@@ -1506,32 +1506,6 @@
     // Проверяем мобильное устройство
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-if (isMobile) {
-    // Уменьшаем количество фотографий, если их много
-    const gallery = document.querySelector('.photo-gallery');
-    if (gallery && gallery.children.length > 6) {
-        const items = Array.from(gallery.children);
-        items.slice(6).forEach(item => item.style.display = 'none');
-        
-        // Можно добавить кнопку "Показать еще"
-        const loadMore = document.createElement('button');
-        loadMore.textContent = 'Показать еще';
-        loadMore.style.cssText = `
-            display: block;
-            margin: 1rem auto;
-            padding: 0.5rem 1rem;
-            background: var(--velvet-red);
-            color: white;
-            border: none;
-            border-radius: 20px;
-        `;
-        loadMore.addEventListener('click', () => {
-            items.forEach(item => item.style.display = '');
-            loadMore.remove();
-        });
-        gallery.parentNode.insertBefore(loadMore, gallery.nextSibling);
-    }
-}
 });
     });
     </script>
